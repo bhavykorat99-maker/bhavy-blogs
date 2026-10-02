@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhavy | Personal Blog</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f8f9fc;
+    color:#172033;
+}
+
+/* HEADER - inspired by your reference */
+.header{
+    height:82px;
+    background:#fff;
+    border-top:1px solid #222;
+    border-bottom:1px solid #e4e7ef;
+    display:flex;
+    align-items:center;
+}
+
+.header-inner{
+    width:100%;
+    max-width:1120px;
+    margin:auto;
+    padding:0 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo{
+    width:50px;
+    height:50px;
+    border-radius:15px;
+    background:linear-gradient(135deg,#7654ff,#6242e8);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:800;
+    box-shadow:0 4px 12px rgba(98,66,232,.25);
+}
+
+.name{
+    font-size:21px;
+    font-weight:750;
+    margin-bottom:4px;
+}
+
+.location{
+    font-size:13px;
+    color:#5543ee;
+    letter-spacing:.3px;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:42px;
+}
+
+.nav a{
+    text-decoration:none;
+    color:#4f596d;
+    font-size:16px;
+    font-weight:600;
+}
+
+.nav a:hover{
+    color:#5543ee;
+}
+
+.write-btn{
+    border:0;
+    background:#5141e8;
+    color:#fff;
+    padding:12px 19px;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 5px 12px rgba(81,65,232,.18);
+}
+
+.write-btn:hover{
+    background:#4030d3;
+}
+
+/* HERO */
+.hero{
+    max-width:1120px;
+    margin:auto;
+    padding:72px 24px 55px;
+    display:grid;
+    grid-template-columns:1.5fr .8fr;
+    gap:65px;
+    align-items:center;
+}
+
+.label{
+    display:inline-block;
+    background:#eeecff;
+    color:#5141e8;
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:800;
+}
+
+.hero h1{
+    font-size:52px;
+    line-height:1.08;
+    margin:18px 0 15px;
+}
+
+.hero h1 span{
+    color:#5141e8;
+}
+
+.hero p{
+    max-width:650px;
+    color:#697386;
+    line-height:1.75;
+    font-size:16px;
+}
+
+.info-card{
+    background:#fff;
+    border:1px solid #e4e7ef;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 12px 35px rgba(24,32,51,.06);
+}
+
+.info-top{
+    display:flex;
+    gap:13px;
+    align-items:center;
+}
+
+.round{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:#eeecff;
+    color:#5141e8;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+}
+
+.info-card h3{
+    font-size:16px;
+}
+
+.info-card small{
+    color:#808899;
+}
+
+.info-card p{
+    margin-top:18px;
+    padding-top:17px;
+    border-top:1px solid #e7e9ef;
+    font-size:13px;
+    line-height:1.7;
+    color:#70798a;
+}
+
+/* CONTENT */
+.section{
+    border-top:1px solid #e6e8ee;
+    padding:42px 24px;
+}
+
+.container{
+    max-width:1120px;
+    margin:auto;
+}
+
+.section-title{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.section-title h2{
+    font-size:25px;
+}
+
+.section-title p{
+    color:#7b8495;
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* EDITOR */
+.editor{
+    background:#fff;
+    border:1px solid #e1e4eb;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(24,32,51,.04);
+}
+
+.editor-head{
+    padding:20px 24px;
+    border-bottom:1px solid #e7e9ef;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.editor-head h2{
+    font-size:18px;
+}
+
+.editor-head p{
+    color:#808899;
+    font-size:12px;
+    margin-top:5px;
+}
+
+.status{
+    background:#eeecff;
+    color:#5141e8;
+    border-radius:7px;
+    padding:7px 10px;
+    font-size:10px;
+    font-weight:800;
+}
+
+.form{
+    padding:24px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:17px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+label{
+    display:block;
+    color:#566073;
+    font-size:10px;
+    font-weight:800;
+    margin-bottom:7px;
+}
+
+input,select,textarea{
+    width:100%;
+    border:1px solid #dfe3eb;
+    border-radius:8px;
+    padding:12px;
+    outline:none;
+    font-size:14px;
+    color:#172033;
+    background:#fff;
+}
+
+textarea{
+    height:150px;
+    resize:vertical;
+}
+
+input:focus,select:focus,textarea:focus{
+    border-color:#6b55f4;
+    box-shadow:0 0 0 3px #eeecff;
+}
+
+.form-buttons{
+    display:flex;
+    justify-content:flex-end;
+    gap:9px;
+    margin-top:18px;
+}
+
+.btn{
+    border:0;
+    border-radius:8px;
+    padding:10px 15px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.save{
+    background:#f0efff;
+    color:#5141e8;
+}
+
+.publish{
+    background:#5141e8;
+    color:#fff;
+}
+
+.clear{
+    background:#fff;
+    border:1px solid #dfe3eb;
+    color:#60697a;
+}
+
+.preview{
+    display:none;
+    width:100%;
+    max-width:180px;
+    height:90px;
+    object-fit:cover;
+    margin-top:8px;
+    border-radius:7px;
+}
+
+/* POSTS */
+.toolbar{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.search{
+    max-width:260px;
+}
+
+.filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:18px;
+}
+
+.filter{
+    border:1px solid #dfe3eb;
+    background:#fff;
+    color:#60697a;
+    border-radius:20px;
+    padding:8px 13px;
+    font-size:11px;
+    cursor:pointer;
+}
+
+.filter.active{
+    background:#5141e8;
+    color:#fff;
+    border-color:#5141e8;
+}
+
+.posts{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card{
+    background:#fff;
+    border:1px solid #e2e5ec;
+    border-radius:13px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+}
+
+.card-image{
+    width:100%;
+    height:175px;
+    object-fit:cover;
+}
+
+.no-image{
+    height:175px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#eeecff,#f8f7ff);
+    color:#6757d8;
+    font-size:35px;
+}
+
+.card-body{
+    padding:17px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+
+.category{
+    align-self:flex-start;
+    background:#eeecff;
+    color:#5141e8;
+    padding:5px 8px;
+    border-radius:5px;
+    font-size:10px;
+    font-weight:700;
+}
+
+.card h3{
+    font-size:18px;
+    margin:10px 0 5px;
+}
+
+.date{
+    color:#9299a7;
+    font-size:10px;
+}
+
+.card p{
+    color:#687285;
+    font-size:12px;
+    line-height:1.65;
+    margin:12px 0;
+    display:-webkit-box;
+    -webkit-line-clamp:4;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+.card-footer{
+    border-top:1px solid #e9ebf0;
+    padding-top:12px;
+    margin-top:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:5px;
+}
+
+.author{
+    color:#788193;
+    font-size:10px;
+}
+
+.card-actions{
+    display:flex;
+    gap:4px;
+}
+
+.small{
+    border:0;
+    background:#f4f5f8;
+    border-radius:6px;
+    padding:7px 9px;
+    cursor:pointer;
+    font-size:11px;
+}
+
+.small:hover{
+    background:#e9ebf3;
+}
+
+.saved{
+    color:#5141e8;
+    background:#eeecff;
+}
+
+.liked{
+    color:#e83f69;
+}
+
+.empty{
+    grid-column:1/-1;
+    text-align:center;
+    background:#fff;
+    border:1px dashed #d9dde6;
+    border-radius:13px;
+    padding:55px;
+    color:#7b8495;
+}
+
+/* FOOTER */
+footer{
+    margin-top:30px;
+    background:#fff;
+    border-top:1px solid #e5e7ed;
+    padding:30px;
+    text-align:center;
+    color:#8a91a0;
+    font-size:11px;
+}
+
+.toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#1c2536;
+    color:#fff;
+    padding:12px 17px;
+    border-radius:8px;
+    font-size:12px;
+    opacity:0;
+    transform:translateY(10px);
+    pointer-events:none;
+    transition:.25s;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* MOBILE */
+@media(max-width:850px){
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .posts{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+    .header{
+        height:auto;
+        padding:14px 0;
+    }
+
+    .header-inner{
+        gap:15px;
+    }
+
+    .nav{
+        gap:8px;
+    }
+
+    .nav a{
+        display:none;
+    }
+
+    .write-btn{
+        padding:10px 12px;
+    }
+
+    .hero h1{
+        font-size:39px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+    .posts{
+        grid-template-columns:1fr;
+    }
+
+    .toolbar{
+        display:block;
+    }
+
+    .search{
+        max-width:none;
+        margin-top:12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-inner">
+
+        <div class="brand">
+            <div class="logo">KB</div>
+
+            <div>
+                <div class="name">Korat Bhavy Bharatbhai</div>
+                <div class="location">SURAT • GUJARAT</div>
+            </div>
+        </div>
+
+        <nav class="nav">
+            <a href="#about">About</a>
+            <a href="#articles">Articles</a>
+            <button class="write-btn" onclick="goWrite()">＋ Write Post</button>
+        </nav>
+
+    </div>
+</header>
+
+
+<section class="hero" id="about">
+
+    <div>
+        <span class="label">PERSONAL BLOG • DIGITAL JOURNAL</span>
+
+        <h1>
+            Write it.<br>
+            <span>Save it.</span><br>
+            Share it.
+        </h1>
+
+        <p>
+            Welcome to my personal blog. A simple place where I can
+            write articles, save drafts, upload photos, like posts,
+            edit my work and keep my ideas organized.
+        </p>
+    </div>
+
+
+    <div class="info-card">
+
+        <div class="info-top">
+            <div class="round">KB</div>
+
+            <div>
+                <h3>Korat Bhavy Bharatbhai</h3>
+                <small>Personal Blog</small>
+            </div>
+        </div>
+
+        <p>
+            Based in Surat, Gujarat. This website is my own digital
+            space for stories, projects, technology, learning and ideas.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="write">
+
+<div class="container">
+
+    <div class="editor">
+
+        <div class="editor-head">
+
+            <div>
+                <h2 id="editorTitle">Create a New Post</h2>
+                <p>Write your article and save it on this device.</p>
+            </div>
+
+            <span class="status" id="status">LOCAL SAVE</span>
+
+        </div>
+
+
+        <div class="form">
+
+            <div class="grid">
+
+                <div>
+                    <label>ARTICLE TITLE *</label>
+
+                    <input
+                        id="title"
+                        placeholder="Enter your article title..."
+                    >
+                </div>
+
+
+                <div>
+                    <label>AUTHOR</label>
+
+                    <input
+                        id="author"
+                        value="Korat Bhavy Bharatbhai"
+                    >
+                </div>
+
+
+                <div>
+                    <label>CATEGORY</label>
+
+                    <select id="category">
+                        <option>Personal</option>
+                        <option>Technology</option>
+                        <option>Projects</option>
+                        <option>Education</option>
+                        <option>Travel</option>
+                        <option>Surat</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+
+                <div>
+                    <label>IMAGE</label>
+
+                    <input
+                        type="file"
+                        id="image"
+                        accept="image/*"
+                    >
+
+                    <img
+                        id="preview"
+                        class="preview"
+                    >
+                </div>
+
+
+                <div class="full">
+
+                    <label>ARTICLE CONTENT *</label>
+
+                    <textarea
+                        id="content"
+                        placeholder="Write your story here..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-buttons">
+
+                <button
+                    class="btn clear"
+                    onclick="clearEditor()"
+                >
+                    Clear
+                </button>
+
+                <button
+                    class="btn save"
+                    onclick="saveDraft()"
+                >
+                    💾 Save Draft
+                </button>
+
+                <button
+                    class="btn publish"
+                    onclick="publishPost()"
+                >
+                    Publish Article →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<section class="section" id="articles">
+
+<div class="container">
+
+    <div class="toolbar">
+
+        <div class="section-title">
+            <div>
+                <h2>My Articles</h2>
+                <p>Published posts and saved articles.</p>
+            </div>
+        </div>
+
+        <input
+            class="search"
+            id="search"
+            placeholder="Search articles..."
+            oninput="renderPosts()"
+        >
+
+    </div>
+
+
+    <div
+        class="filters"
+        id="filters"
+    ></div>
+
+
+    <div
+        class="posts"
+        id="posts"
+    ></div>
+
+</div>
+
+</section>
+
+
+<footer>
+    © 2026 Korat Bhavy Bharatbhai • Surat, Gujarat
+</footer>
+
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+<script>
+
+const POSTS_KEY = "bhavy_posts_final";
+const DRAFT_KEY = "bhavy_draft_final";
+
+let posts = JSON.parse(
+    localStorage.getItem(POSTS_KEY) || "[]"
+);
+
+let editingId = null;
+let activeFilter = "All";
+
+
+const $ = id =>
+    document.getElementById(id);
+
+
+/* MESSAGE */
+
+function message(text){
+
+    const toast = $("toast");
+
+    toast.textContent = text;
+
+    toast.classList.add("show");
+
+    setTimeout(() =>
+        toast.classList.remove("show"), 2200
+    );
+
+}
+
+
+/* GO TO WRITER */
+
+function goWrite(){
+
+    $("write").scrollIntoView({
+        behavior:"smooth"
+    });
+
+    setTimeout(() =>
+        $("title").focus(), 500
+    );
+
+}
+
+
+/* IMAGE PREVIEW */
+
+$("image").addEventListener(
+    "change",
+    function(){
+
+        const file = this.files[0];
+
+        if(!file){
+
+            $("preview").style.display =
+                "none";
+
+            return;
+
+        }
+
+        const reader =
+            new FileReader();
+
+        reader.onload =
+            function(event){
+
+                $("preview").src =
+                    event.target.result;
+
+                $("preview").style.display =
+                    "block";
+
+            };
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+
+/* SAVE DATABASE */
+
+function savePosts(){
+
+    localStorage.setItem(
+        POSTS_KEY,
+        JSON.stringify(posts)
+    );
+
+}
+
+
+/* SAVE DRAFT */
+
+function saveDraft(){
+
+    const title =
+        $("title").value.trim();
+
+    const content =
+        $("content").value.trim();
+
+    if(!title && !content){
+
+        message(
+            "Write something before saving."
+        );
+
+        return;
+
+    }
+
+
+    const data = {
+
+        title:title,
+
+        author:
+            $("author").value.trim(),
+
+        category:
+            $("category").value,
+
+        content:content
+
+    };
+
+
+    const file =
+        $("image").files[0];
+
+
+    if(file){
+
+        const reader =
+            new FileReader();
+
+        reader.onload =
+            function(event){
+
+                data.image =
+                    event.target.result;
+
+                localStorage.setItem(
+                    DRAFT_KEY,
+                    JSON.stringify(data)
+                );
+
+                message(
+                    "💾 Draft saved!"
+                );
+
+            };
+
+        reader.readAsDataURL(file);
+
+    }
+
+    else{
+
+        data.image = "";
+
+        localStorage.setItem(
+            DRAFT_KEY,
+            JSON.stringify(data)
+        );
+
+        message(
+            "💾 Draft saved!"
+        );
+
+    }
+
+}
+
+
+/* PUBLISH */
+
+function publishPost(){
+
+    const title =
+        $("title").value.trim();
+
+    const content =
+        $("content").value.trim();
+
+
+    if(!title || !content){
+
+        message(
+            "Please enter a title and content."
+        );
+
+        return;
+
+    }
+
+
+    const data = {
+
+        title:title,
+
+        author:
+            $("author").value.trim()
+            || "Korat Bhavy Bharatbhai",
+
+        category:
+            $("category").value,
+
+        content:content
+
+    };
+
+
+    const file =
+        $("image").files[0];
+
+
+    function finish(image){
+
+        if(editingId){
+
+            const post =
+                posts.find(
+                    p => p.id === editingId
+                );
+
+            if(post){
+
+                post.title =
+                    data.title;
+
+                post.author =
+                    data.author;
+
+                post.category =
+                    data.category;
+
+                post.content =
+                    data.content;
+
+                if(image){
+
+                    post.image = image;
+
+                }
+
+            }
+
+            message(
+                "Article updated!"
+            );
+
+        }
+
+        else{
+
+            posts.unshift({
+
+                id:Date.now(),
+
+                title:data.title,
+
+                author:data.author,
+
+                category:data.category,
+
+                content:data.content,
+
+                image:image || "",
+
+                likes:0,
+
+                saved:false,
+
+                date:
+                    new Date()
+                    .toLocaleDateString()
+
+            });
+
+            message(
+                "Article published!"
+            );
+
+        }
+
+
+        savePosts();
+
+        localStorage.removeItem(
+            DRAFT_KEY
+        );
+
+        clearEditor(false);
+
+        renderPosts();
+
+    }
+
+
+    if(file){
+
+        if(
+            file.size >
+            5 * 1024 * 1024
+        ){
+
+            message(
+                "Image must be smaller than 5 MB."
+            );
+
+            return;
+
+        }
+
+
+        const reader =
+            new FileReader();
+
+        reader.onload =
+            e => finish(e.target.result);
+
+        reader.readAsDataURL(file);
+
+    }
+
+    else{
+
+        finish("");
+
+    }
+
+}
+
+
+/* CLEAR */
+
+function clearEditor(show=true){
+
+    editingId = null;
+
+    $("editorTitle").textContent =
+        "Create a New Post";
+
+    $("status").textContent =
+        "LOCAL SAVE";
+
+    $("title").value = "";
+
+    $("author").value =
+        "Korat Bhavy Bharatbhai";
+
+    $("category").value =
+        "Personal";
+
+    $("content").value = "";
+
+    $("image").value = "";
+
+    $("preview").style.display =
+        "none";
+
+
+    if(show){
+
+        message(
+            "Editor cleared."
+        );
+
+    }
+
+}
+
+
+/* EDIT */
+
+function editPost(id){
+
+    const post =
+        posts.find(
+            p => p.id === id
+        );
+
+    if(!post) return;
+
+
+    editingId = id;
+
+
+    $("editorTitle").textContent =
+        "Edit Article";
+
+    $("status").textContent =
+        "EDITING";
+
+
+    $("title").value =
+        post.title;
+
+    $("author").value =
+        post.author;
+
+    $("category").value =
+        post.category;
+
+    $("content").value =
+        post.content;
+
+
+    if(post.image){
+
+        $("preview").src =
+            post.image;
+
+        $("preview").style.display =
+            "block";
+
+    }
+
+
+    goWrite();
+
+}
+
+
+/* DELETE */
+
+function deletePost(id){
+
+    if(
+        !confirm(
+            "Delete this article?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    posts =
+        posts.filter(
+            p => p.id !== id
+        );
+
+
+    savePosts();
+
+    renderPosts();
+
+    message(
+        "Article deleted."
+    );
+
+}
+
+
+/* LIKE */
+
+function likePost(id){
+
+    const post =
+        posts.find(
+            p => p.id === id
+        );
+
+    if(!post) return;
+
+
+    post.likes =
+        (post.likes || 0) + 1;
+
+
+    savePosts();
+
+    renderPosts();
+
+}
+
+
+/* SAVE BLOG */
+
+function saveBlog(id){
+
+    const post =
+        posts.find(
+            p => p.id === id
+        );
+
+    if(!post) return;
+
+
+    post.saved =
+        !post.saved;
+
+
+    savePosts();
+
+    renderPosts();
+
+
+    message(
+        post.saved
+        ? "🔖 Blog saved!"
+        : "Blog removed from saved."
+    );
+
+}
+
+
+/* FILTER */
+
+function setFilter(filter){
+
+    activeFilter =
+        filter;
+
+    renderPosts();
+
+}
+
+
+/* ESCAPE */
+
+function safe(text){
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+    div.textContent =
+        text || "";
+
+    return div.innerHTML;
+
+}
+
+
+/* RENDER */
+
+function renderPosts(){
+
+    const search =
+        $("search").value
+        .toLowerCase()
+        .trim();
+
+
+    const categories =
+        [
+            "All",
+            "Saved",
+            ...new Set(
+                posts.map(
+                    p => p.category
+                )
+            )
+        ];
+
+
+    $("filters").innerHTML =
+        categories.map(
+            category => `
+
+            <button
+                class="filter ${
+                    activeFilter === category
+                    ? "active"
+                    : ""
+                }"
+                onclick="setFilter('${category}')"
+            >
+
+                ${
+                    category === "Saved"
+                    ? "🔖 "
+                    : ""
+                }
+
+                ${safe(category)}
+
+            </button>
+
+        `
+        ).join("");
+
+
+    const filtered =
+        posts.filter(post => {
+
+            let matchesFilter =
+                activeFilter === "All";
+
+            if(
+                activeFilter === "Saved"
+            ){
+
+                matchesFilter =
+                    post.saved === true;
+
+            }
+
+            else if(
+                activeFilter !== "All"
+            ){
+
+                matchesFilter =
+                    post.category ===
+                    activeFilter;
+
+            }
+
+
+            const matchesSearch =
+                !search ||
+
+                post.title
+                .toLowerCase()
+                .includes(search)
+
+                ||
+
+                post.content
+                .toLowerCase()
+                .includes(search)
+
+                ||
+
+                post.category
+                .toLowerCase()
+                .includes(search);
+
+
+            return (
+                matchesFilter &&
+                matchesSearch
+            );
+
+        });
+
+
+    if(!filtered.length){
+
+        $("posts").innerHTML = `
+
+            <div class="empty">
+
+                <div
+                    style="
+                    font-size:34px;
+                    margin-bottom:10px;
+                    "
+                >
+                    ✦
+                </div>
+
+                <b>No articles found</b>
+
+                <p>
+                    Create your first article above.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    $("posts").innerHTML =
+        filtered.map(
+            post => `
+
+            <article class="card">
+
+                ${
+                    post.image
+
+                    ?
+
+                    `<img
+                        class="card-image"
+                        src="${post.image}"
+                        alt="Article image"
+                    >`
+
+                    :
+
+                    `<div class="no-image">
+                        ✦
+                    </div>`
+                }
+
+
+                <div class="card-body">
+
+                    <span class="category">
+
+                        ${safe(post.category)}
+
+                    </span>
+
+
+                    <h3>
+                        ${safe(post.title)}
+                    </h3>
+
+
+                    <div class="date">
+
+                        ${safe(post.date)}
+
+                    </div>
+
+
+                    <p>
+
+                        ${safe(post.content)}
+
+                    </p>
+
+
+                    <div class="card-footer">
+
+                        <span class="author">
+
+                            By
+                            ${safe(post.author)}
+
+                        </span>
+
+
+                        <div class="card-actions">
+
+                            <button
+                                class="small liked"
+                                onclick="likePost(${post.id})"
+                            >
+
+                                ♥
+                                ${post.likes || 0}
+
+                            </button>
+
+
+                            <button
+                                class="small ${
+                                    post.saved
+                                    ? "saved"
+                                    : ""
+                                }"
+                                onclick="saveBlog(${post.id})"
+                            >
+
+                                ${
+                                    post.saved
+                                    ? "🔖 Saved"
+                                    : "🔖 Save"
+                                }
+
+                            </button>
+
+
+                            <button
+                                class="small"
+                                onclick="editPost(${post.id})"
+                            >
+
+                                Edit
+
+                            </button>
+
+
+                            <button
+                                class="small"
+                                onclick="deletePost(${post.id})"
+                            >
+
+                                Delete
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        `
+        ).join("");
+
+}
+
+
+/* LOAD */
+
+function loadDraft(){
+
+    const draft =
+        JSON.parse(
+            localStorage.getItem(
+                DRAFT_KEY
+            ) || "null"
+        );
+
+
+    if(!draft) return;
+
+
+    $("title").value =
+        draft.title || "";
+
+    $("author").value =
+        draft.author ||
+        "Korat Bhavy Bharatbhai";
+
+    $("category").value =
+        draft.category ||
+        "Personal";
+
+    $("content").value =
+        draft.content || "";
+
+
+    if(draft.image){
+
+        $("preview").src =
+            draft.image;
+
+        $("preview").style.display =
+            "block";
+
+    }
+
+}
+
+
+/* START */
+
+loadDraft();
+
+renderPosts();
+
+</script>
+
+</body>
+</html>
